@@ -635,4 +635,8 @@ body {
   .time-choice__time:not(.time-choice__time--more):nth-child(-n+9) {
     display: inline-block;
   }
+
+  .time-choice__time--more {
+    display: inline-block;
+  }
 }
