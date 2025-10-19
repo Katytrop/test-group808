@@ -210,9 +210,14 @@
         display: grid;
         grid-template-columns: repeat(4, minmax(toRem(100), toRem(105)));
         gap: toRem(23);
-        overflow: scroll;
-        &::-webkit-scrollbar {
-            display: none;
+        @media (max-width: $md1+px)  {
+            display: flex;
+            gap: toRem(10);
+            overflow: scroll;
+            white-space: nowrap;
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
         @media (max-width: $md4+px)  {
             gap: toRem(10);
@@ -252,19 +257,33 @@
         background-color: transparent;
         font-size: toRem(26);
         color: $grayColor;
-        @media (max-width: 1115px)  {
+        @media (max-width: $md1+px)  {
             display: none;
         }
     }
 }
 .time-choice {
     &__time {
+        display: none;
         border: 1px solid $grayColor;
         background: #fff;
         font-weight: 500;
         font-size: toRem(16);
         line-height: 100%;
         letter-spacing: -0.02em;
+        @media (min-width: $md4+px)  {
+            &:not(.time-choice__time--more):nth-child(-n+11) {
+                display: inline-block;
+            }
+        }
+        @media (max-width: $md4+px)  {
+            display: none;
+            &:not(.time-choice__time--more):nth-child(-n+9) {
+                display: inline-block;
+            }
+        }
+        
+        
         &--active {
             border: none;
             background: $bgPurple;
@@ -272,17 +291,13 @@
         }
 
         &--more {
+            display: inline-block;
             border: none;
             background: $bgPurple;
             color: #fff;
             p {
                 transform: rotate(90deg);
             }
-        }
-        &:nth-child(8), &:nth-child(9) { //так как тут без js скрыла две лишних так
-           @media (max-width: $md4+px)  {
-               display: none;
-           }
         }
     }
 
