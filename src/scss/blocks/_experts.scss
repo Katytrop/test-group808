@@ -281,6 +281,9 @@
             &:not(.time-choice__time--more):nth-child(-n+9) {
                 display: inline-block;
             }
+            &--more {
+                display: inline-block;
+            }
         }
         
         
